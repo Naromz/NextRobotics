@@ -1,0 +1,30 @@
+<html>
+
+<body onload='myFunction()'>
+
+  <div style='outline:1px solid black;background-Color:blue;width:200px;height:200px;' onTouchStart='sendMessage(`1`)'
+    onTouchEnd='sendMessage(`3`)'>
+    test
+  </div>
+
+
+
+
+
+
+  <script>
+    var ws = new WebSocket('ws://192.168.1.225:81');
+    function myFunction() {
+
+      ws.onopen = () => {
+        console.log('connected')
+      }
+
+    }
+    function sendMessage(msg) {
+      ws.send(msg)
+    }
+  </script>
+</body>
+
+</html>
